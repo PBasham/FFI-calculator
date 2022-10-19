@@ -1,5 +1,16 @@
 .nav-bar {
     background-color: var(--color-navBar);
     height: 75px;
+    position: absolute;
     border-bottom: 1vh solid var(--color-dividerBar);
+    width: 100%;
+    background-color: var(--color-navBar);
+    transition: ease-in-out 250ms;
+    z-index: 100;
+}
+
+.nav-modal {
+}
+.open {
+    height: 75%;
 }

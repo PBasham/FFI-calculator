@@ -1,5 +1,6 @@
 :root {
     --color-navBar: rgb(100,83,144);
+    --color-navOverlay: rgba(100,83,144, .9);
     --color-dividerBar: rgb(49,38,80);
     --color-background: rgb(67,50,110);
     --color-buttonNumber: rgb(67,50,110);
