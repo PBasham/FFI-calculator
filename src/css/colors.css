@@ -7,11 +7,3 @@
     --color-textAccent: rgb(67,50,110);
     --color-buttonSymbol: rgb(250,214,82);
 }
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
