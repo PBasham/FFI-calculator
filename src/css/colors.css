@@ -1,0 +1,17 @@
+:root {
+    --color-navBar: rgb(100,83,144);
+    --color-dividerBar: rgb(49,38,80);
+    --color-background: rgb(67,50,110);
+    --color-buttonNumber: rgb(67,50,110);
+    --color-text: rgb(255,254,253);
+    --color-textAccent: rgb(67,50,110);
+    --color-buttonSymbol: rgb(250,214,82);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
