@@ -9,8 +9,39 @@
     z-index: 100;
 }
 
-.nav-modal {
-}
 .open {
     height: 75%;
+}
+
+.navBtn {
+    display: flex;
+    /* align-items: center; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2em 1em;
+    height: 150px;
+}
+
+.hamburger-menu,
+.hamburger-menu::before,
+.hamburger-menu::after {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 5px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.hamburger-menu::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+}
+
+.hamburger-menu::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
 }
