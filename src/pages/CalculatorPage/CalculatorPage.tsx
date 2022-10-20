@@ -109,9 +109,6 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
         setCurrentValue("0")
     }
 
-    const placeHolder = () => {
-    }
-
     return (
         <div className="calculator-div">
             <div className="calculation-div">

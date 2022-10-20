@@ -20,6 +20,8 @@ function App() {
         <div className="app">
             <NavBar />
             <CalculatorPage />
+            {/* HistoryPage */}
+            {/* SettingsPage */}
         </div>
     );
 }

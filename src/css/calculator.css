@@ -13,7 +13,7 @@
     align-items: flex-end;
     margin-top: 1em;
     text-align: right;
-    font-size: 5rem;
+    font-size: 5em;
     width: 100%;
     min-height: 26vh;
     border-bottom: 3px solid rgba(154,144,176, 1);
@@ -21,10 +21,10 @@
     word-break: break-all;
 }
 
-.current {
-
+.calculation-div .current {
+    font-size: 5rem;
 }
-.previous {
+.calculation-div .previous {
     font-size: 3rem;
 }
 
