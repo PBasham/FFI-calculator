@@ -3,12 +3,13 @@
 ========================================*/
 import React, { FC } from 'react'
 
-interface DigitBtnProps {
+interface SymbolBtnProps {
     symbol: number
+    onClick: () => void
     className: string
 }
 
-export const DigitBtn: FC<DigitBtnProps> = ({symbol, className}) => {
+export const SymbolBtn: FC<SymbolBtnProps> = ({symbol, className}) => {
 
     const handleClick = () => {
         console.log("I've been clicked! And my symbol is: ", symbol);

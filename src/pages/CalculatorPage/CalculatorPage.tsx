@@ -21,6 +21,10 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
         console.log("Clear calculation");
     }
     
+    const handleAddNumber = (number: number) => {
+        console.log(" my digit is ", number)
+    }
+
     const placeHolder = () => {
     }
     
@@ -35,17 +39,17 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
                 <div className="btn placeholder"></div>
                 <button onClick={placeHolder} className="btn btn-acc">÷</button>
                 <button onClick={placeHolder} className="btn btn-acc">×</button>
-                <DigitBtn digit={7} className={"btn"}/>
-                <DigitBtn digit={8} className={"btn"}/>
-                <DigitBtn digit={9} className={"btn"}/>
+                <DigitBtn digit={7} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={8} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={9} onClick={handleAddNumber} className={"btn"}/>
                 <button onClick={placeHolder} className="btn btn-acc">-</button>
-                <DigitBtn digit={4} className={"btn"}/>
-                <DigitBtn digit={5} className={"btn"}/>
-                <DigitBtn digit={6} className={"btn"}/>
+                <DigitBtn digit={4} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={5} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={6} onClick={handleAddNumber} className={"btn"}/>
                 <button onClick={placeHolder} className="btn btn-acc">+</button>
-                <DigitBtn digit={1} className={"btn"}/>
-                <DigitBtn digit={2} className={"btn"}/>
-                <DigitBtn digit={3} className={"btn"}/>
+                <DigitBtn digit={1} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={2} onClick={handleAddNumber} className={"btn"}/>
+                <DigitBtn digit={3} onClick={handleAddNumber} className={"btn"}/>
                 <button onClick={placeHolder} className="btn btn-acc span-two-vert">=</button>
                 <button onClick={placeHolder} className="btn span-two-hor">0</button>
                 <button onClick={placeHolder} className="btn">.</button>
