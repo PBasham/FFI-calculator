@@ -13,25 +13,36 @@ interface CalculatorPageProps {
 export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
 
+    const [previousValue, setPreviousValue] = useState("")
+
     const [currentValue, setCurrentValue] = useState<string>("0")
 
+    const [decimalExist, setDecimalExist] = useState(false)
 
-
+    let currentOperation = ""
 
     const handleClear = () => {
         console.log("Clear calculation");
         // Clear PreviousNumbers
         // reset value to 0
         setCurrentValue(() => "0")
+        setPreviousValue(() => "")
     }
 
-    const handleAddNumber = (number: number) => {
+    const handleAddNumber = (number: string) => {
         console.log(" my digit is ", number)
 
         if (currentValue === "0") {
-            setCurrentValue(() =>
+            if (number === ".") {
+
+                setCurrentValue(() =>
+                "."
+                )
+            } else {
+                setCurrentValue(() =>
                 "" + number
-            )
+                )
+            }
 
         } else {
 
@@ -44,38 +55,48 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     }
 
-    const handleSymbolClick = () => {
-        
+    const handleSymbolClick = (symbol: string, type: string) => {
+        setPreviousValue(`${currentValue} ${symbol}`)
+        setCurrentValue("0")
+        if (currentOperation === "") {
+            currentOperation = symbol
+        } else {
+            let calculatedValue = ""
+        }
+    }
+
+    const handleCalculate = () => {
+
     }
 
     const placeHolder = () => {
     }
 
-
     return (
         <div className="calculator-div">
             <div className="calculation-div">
+                <div className="previous">{previousValue}</div>
                 <div className="current">{currentValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
             </div>
             <div className="buttons-grid">
                 <button onClick={handleClear} className="btn btn-brd-acc">C</button>
                 <div className="btn placeholder"></div>
-                <SymbolBtn symbol={"÷"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
-                <SymbolBtn symbol={"×"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
-                <DigitBtn digit={7} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={8} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={9} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"-"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
-                <DigitBtn digit={4} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={5} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={6} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"+"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
-                <DigitBtn digit={1} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={2} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={3} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"="} onClick={handleSymbolClick} className={"btn btn-acc span-two-vert"}/>
-                <DigitBtn digit={0} onClick={handleAddNumber} className={"btn span-two-hor"}/>
-                <SymbolBtn symbol={"."} onClick={handleSymbolClick} className={"btn"}/>
+                <SymbolBtn symbol={"÷"} type={"divide"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <SymbolBtn symbol={"×"} type={"multiply"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <DigitBtn digit={"7"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"8"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"9"} onClick={handleAddNumber} className={"btn"} />
+                <SymbolBtn symbol={"-"} type={"subtract"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <DigitBtn digit={"4"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"5"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"6"} onClick={handleAddNumber} className={"btn"} />
+                <SymbolBtn symbol={"+"} type={"add"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <DigitBtn digit={"1"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"2"} onClick={handleAddNumber} className={"btn"} />
+                <DigitBtn digit={"3"} onClick={handleAddNumber} className={"btn"} />
+                <SymbolBtn symbol={"="} type={"equal"} onClick={handleCalculate} className={"btn btn-acc span-two-vert"}/>
+                <DigitBtn digit={"0"} onClick={handleAddNumber} className={"btn span-two-hor"}/>
+                <DigitBtn digit={"."} onClick={handleAddNumber} className={"btn"}/>
             </div>
         </div>
     )

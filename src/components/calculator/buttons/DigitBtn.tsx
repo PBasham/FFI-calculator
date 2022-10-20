@@ -4,8 +4,8 @@
 import React, { FC } from 'react'
 
 interface DigitBtnProps {
-    digit: number
-    onClick: (number: number) => void
+    digit: string
+    onClick: (number: string) => void
     className: string
 }
 

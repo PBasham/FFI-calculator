@@ -5,11 +5,12 @@ import React, { FC } from 'react'
 
 interface SymbolBtnProps {
     symbol: string
-    onClick: () => void
+    type: string
+    onClick: (symbol: string, type: string) => void
     className: string
 }
 
-export const SymbolBtn: FC<SymbolBtnProps> = ({symbol, className}) => {
+export const SymbolBtn: FC<SymbolBtnProps> = ({symbol, type, onClick, className}) => {
 
     const handleClick = () => {
         console.log("I've been clicked! And my symbol is: ", symbol);
@@ -17,7 +18,7 @@ export const SymbolBtn: FC<SymbolBtnProps> = ({symbol, className}) => {
     }
 
    return (
-       <div onClick={handleClick} className={className}>
+       <div onClick={() => onClick(symbol, type)} className={className}>
            {symbol}
        </div>
    )

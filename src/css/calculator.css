@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: flex-end;
     margin-top: 1em;
     text-align: right;
@@ -20,6 +20,14 @@
     word-wrap: break-word;
     word-break: break-all;
 }
+
+.current {
+
+}
+.previous {
+    font-size: 3rem;
+}
+
 .buttons-grid {
     margin-top: 2em;
     display: grid;
