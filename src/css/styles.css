@@ -19,3 +19,7 @@ body {
 .app {
     height: 100vh;
 }
+
+/*  Future use */
+/* @media screen and (orientation:portrait) { … }
+@media screen and (orientation:landscape) { … } */
