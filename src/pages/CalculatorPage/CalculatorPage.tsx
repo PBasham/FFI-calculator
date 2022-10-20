@@ -13,13 +13,14 @@ interface CalculatorPageProps {
 export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
 
-    const [previousValue, setPreviousValue] = useState("")
+    const [previousValue, setPreviousValue] = useState<string>("")
 
     const [currentValue, setCurrentValue] = useState<string>("0")
 
+    const [currentOperation, setCurrentOperation] = useState<any>({symbol: "", type: ""})
+
     const [decimalExist, setDecimalExist] = useState(false)
 
-    let currentOperation = ""
 
     const handleClear = () => {
         console.log("Clear calculation");
@@ -27,6 +28,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
         // reset value to 0 | "" | decimalExist(false)
         setCurrentValue(() => "0")
         setPreviousValue(() => "")
+        setCurrentOperation(() => "")
         setDecimalExist(false)
     }
 
@@ -34,6 +36,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     // take previous number, symbol, and currentNumber and calculate the answer
     const handleCalculate = async () => {
         console.log("Calculate the new value!")
+        console.log(`${previousValue} ${currentOperation.symbol} ${currentValue}`)
         return "value"
     }
     
@@ -74,20 +77,23 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     const handleSymbolClick  = async (symbol: string, type: string) => {
         // what it does --------------------------------------------------
         // if there is a previous value, carry out calculations and make make the calculation the previousValue with the new symbol.
+        console.log(type)
         if (previousValue !== "") {
             // Calculate the new value
             const newValue = await handleCalculate()
             // add the new symbol to this value
-            setPreviousValue(`${newValue} ${symbol}`)
+            setPreviousValue(`${newValue}`)
+            setCurrentOperation({symbol: symbol, type: type})
         } else {
-            setPreviousValue(`${currentValue} ${symbol}`)
+            setPreviousValue(`${currentValue}`)
+            setCurrentOperation({symbol: symbol, type: type})
             console.log(`Set previousValue to ${currentValue}`)
         }
         // else add currentValue and passed symbol to the previous value
         //  --------------------------------------------------
         setCurrentValue("0")
         if (currentOperation === "") {
-            currentOperation = symbol
+            setCurrentOperation(symbol)
         } else {
             let calculatedValue = ""
         }
@@ -99,7 +105,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     return (
         <div className="calculator-div">
             <div className="calculation-div">
-                <div className="previous">{previousValue}</div>
+                <div className="previous">{previousValue} {currentOperation.symbol}</div>
                 {/* .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") */}
                 <div className="current">{currentValue}</div>
             </div>
