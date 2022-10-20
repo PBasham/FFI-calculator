@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 import React, { FC } from 'react'
+import { DigitBtn } from "../../components/calculator/buttons/DigitBtn";
 import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
@@ -10,30 +11,44 @@ interface CalculatorPageProps {
 
 export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
+
+
+
+
+
+
+    const handleClear = () => {
+        console.log("Clear calculation");
+    }
+    
+    const placeHolder = () => {
+    }
+    
+    
     return (
         <div className="calculator-div">
             <div className="calculation-div">
                 <div className="current">0</div>
             </div>
             <div className="buttons-grid">
-                <button className="btn btn-brd-acc">C</button>
+                <button onClick={handleClear} className="btn btn-brd-acc">C</button>
                 <div className="btn placeholder"></div>
-                <button className="btn btn-acc">÷</button>
-                <button className="btn btn-acc">x</button>
-                <button className="btn">7</button>
-                <button className="btn">8</button>
-                <button className="btn">9</button>
-                <button className="btn btn-acc">-</button>
-                <button className="btn">4</button>
-                <button className="btn">5</button>
-                <button className="btn">6</button>
-                <button className="btn btn-acc">+</button>
-                <button className="btn">1</button>
-                <button className="btn">2</button>
-                <button className="btn">3</button>
-                <button className="btn btn-acc span-two-vert">=</button>
-                <button className="btn span-two-hor">0</button>
-                <button className="btn">.</button>
+                <button onClick={placeHolder} className="btn btn-acc">÷</button>
+                <button onClick={placeHolder} className="btn btn-acc">×</button>
+                <DigitBtn digit={7} className={"btn"}/>
+                <DigitBtn digit={8} className={"btn"}/>
+                <DigitBtn digit={9} className={"btn"}/>
+                <button onClick={placeHolder} className="btn btn-acc">-</button>
+                <DigitBtn digit={4} className={"btn"}/>
+                <DigitBtn digit={5} className={"btn"}/>
+                <DigitBtn digit={6} className={"btn"}/>
+                <button onClick={placeHolder} className="btn btn-acc">+</button>
+                <DigitBtn digit={1} className={"btn"}/>
+                <DigitBtn digit={2} className={"btn"}/>
+                <DigitBtn digit={3} className={"btn"}/>
+                <button onClick={placeHolder} className="btn btn-acc span-two-vert">=</button>
+                <button onClick={placeHolder} className="btn span-two-hor">0</button>
+                <button onClick={placeHolder} className="btn">.</button>
             </div>
         </div>
     )
