@@ -13,11 +13,11 @@ interface CalculatorPageProps {
 export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
 
+    const [showValue, setShowValue] = useState("")
+
     const [previousValue, setPreviousValue] = useState<string>("")
 
     const [currentValue, setCurrentValue] = useState<string>("0")
-
-    const [currentOperation, setCurrentOperation] = useState<any>({ symbol: "", type: "" })
 
     const [decimalExist, setDecimalExist] = useState(false)
 
@@ -28,7 +28,6 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
         // reset value to 0 | "" | decimalExist(false)
         setCurrentValue(() => "0")
         setPreviousValue(() => "")
-        setCurrentOperation(() => "")
         setDecimalExist(false)
     }
 
@@ -43,8 +42,8 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
             const result = await handleCalculate()
             setDecimalExist(false)
             setCurrentValue(result)
+            setShowValue("")
             setPreviousValue("")
-            setCurrentOperation(() => "")
         }
     }
 
@@ -94,13 +93,12 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
         console.log(type)
         if (previousValue !== "") {
             // Calculate the new value
-            // const newValue = await handleCalculate()
             // add the new symbol to this value
+            setShowValue((current) => current + currentValue + symbol)
             setPreviousValue((current) => current + currentValue + type)
-            // setCurrentOperation({symbol: symbol, type: type})
         } else {
+            setShowValue((current) => currentValue + symbol)
             setPreviousValue((current) => currentValue + type)
-            // setCurrentOperation({symbol: symbol, type: type})
             console.log(`Set previousValue to ${currentValue}`)
         }
         // else add currentValue and passed symbol to the previous value
@@ -112,7 +110,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     return (
         <div className="calculator-div">
             <div className="calculation-div">
-                <div className="previous">{previousValue}</div>
+                <div className="previous">{showValue}</div>
                 {/* .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") */}
                 <div className="current">{currentValue}</div>
             </div>
