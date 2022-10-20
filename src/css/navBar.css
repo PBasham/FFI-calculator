@@ -5,7 +5,7 @@
     border-bottom: 1vh solid var(--color-dividerBar);
     width: 100%;
     background-color: var(--color-navBar);
-    transition: ease-in-out 250ms;
+    transition: ease-in-out 150ms;
     z-index: 100;
 }
 
@@ -56,7 +56,7 @@
 }
 .nav-link {
     opacity: 0;
-    transition: 250ms ease-in-out;
+    transition: 150ms ease-in-out;
 }
 .nav-link.open {
     font-size: 2rem;

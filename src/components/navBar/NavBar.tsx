@@ -20,6 +20,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, handleNavChange }) => {
     }
 
     const handleNavClick = (id: number) => {
+        closeMobileNav()
         handleNavChange(id)
     }
 
