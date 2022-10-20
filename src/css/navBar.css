@@ -10,6 +10,7 @@
 }
 
 .nav-bar.open {
+    opacity: .9;
     height: 50%;
 }
 
