@@ -3,6 +3,7 @@
 ========================================*/
 import React, { FC, useState } from 'react'
 import { DigitBtn } from "../../components/calculator/buttons/DigitBtn";
+import { SymbolBtn } from "../../components/calculator/buttons/SymbolBtn";
 import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
@@ -43,6 +44,10 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     }
 
+    const handleSymbolClick = () => {
+        
+    }
+
     const placeHolder = () => {
     }
 
@@ -55,22 +60,22 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
             <div className="buttons-grid">
                 <button onClick={handleClear} className="btn btn-brd-acc">C</button>
                 <div className="btn placeholder"></div>
-                <button onClick={placeHolder} className="btn btn-acc">÷</button>
-                <button onClick={placeHolder} className="btn btn-acc">×</button>
+                <SymbolBtn symbol={"÷"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <SymbolBtn symbol={"×"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
                 <DigitBtn digit={7} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={8} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={9} onClick={handleAddNumber} className={"btn"} />
-                <button onClick={placeHolder} className="btn btn-acc">-</button>
+                <SymbolBtn symbol={"-"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
                 <DigitBtn digit={4} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={5} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={6} onClick={handleAddNumber} className={"btn"} />
-                <button onClick={placeHolder} className="btn btn-acc">+</button>
+                <SymbolBtn symbol={"+"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
                 <DigitBtn digit={1} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={2} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={3} onClick={handleAddNumber} className={"btn"} />
-                <button onClick={placeHolder} className="btn btn-acc span-two-vert">=</button>
-                <button onClick={placeHolder} className="btn span-two-hor">0</button>
-                <button onClick={placeHolder} className="btn">.</button>
+                <SymbolBtn symbol={"="} onClick={handleSymbolClick} className={"btn btn-acc span-two-vert"}/>
+                <DigitBtn digit={0} onClick={handleAddNumber} className={"btn span-two-hor"}/>
+                <SymbolBtn symbol={"."} onClick={handleSymbolClick} className={"btn"}/>
             </div>
         </div>
     )

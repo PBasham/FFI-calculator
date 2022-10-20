@@ -4,7 +4,7 @@
 import React, { FC } from 'react'
 
 interface SymbolBtnProps {
-    symbol: number
+    symbol: string
     onClick: () => void
     className: string
 }
