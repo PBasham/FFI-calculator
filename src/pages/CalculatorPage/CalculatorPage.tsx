@@ -17,7 +17,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     const [currentValue, setCurrentValue] = useState<string>("0")
 
-    const [currentOperation, setCurrentOperation] = useState<any>({symbol: "", type: ""})
+    const [currentOperation, setCurrentOperation] = useState<any>({ symbol: "", type: "" })
 
     const [decimalExist, setDecimalExist] = useState(false)
 
@@ -35,9 +35,9 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     // take previous number, symbol, and currentNumber and calculate the answer
     const handleCalculate = async () => {
-        return `${Math.round(eval(`${previousValue} ${currentOperation.type} ${currentValue}`) * 100)/100}`
+        return `${Math.round(eval(`${previousValue}${currentValue}`) * 100) / 100}`
     }
-    
+
     const handleEqualPress = async () => {
         if (previousValue !== "") {
             const result = await handleCalculate()
@@ -45,7 +45,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
             setCurrentValue(result)
             setPreviousValue("")
             setCurrentOperation(() => "")
-        } 
+        }
     }
 
     const handleAddNumber = (number: string) => {
@@ -58,20 +58,20 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
             // if num === "." and decimalExist === false, add the decimal onto the 0, setDecimalExist(true)
             if (number === "." && !decimalExist) {
                 setDecimalExist(true)
-                setCurrentValue(() => "0." )
+                setCurrentValue(() => "0.")
             } else {
                 // else if num !== "." set currentValue === number
-                setCurrentValue(() => "" + number )
+                setCurrentValue(() => "" + number)
             }
 
-        // else (currentValue !== "0")
-    } else {
+            // else (currentValue !== "0")
+        } else {
             // if num === "." and decimalExist === false, add the decimal to the number | set decimalExist(true)
             if (number === "." && !decimalExist) {
                 setDecimalExist(true)
                 setCurrentValue((currentNumber) =>
-                "" + currentNumber + number
-            )
+                    "" + currentNumber + number
+                )
             } else if (number !== ".") {
                 // else append number
                 setCurrentValue((currentNumber) =>
@@ -88,19 +88,19 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     }
 
-    const handleSymbolClick  = async (symbol: string, type: string) => {
+    const handleSymbolClick = async (symbol: string, type: string) => {
         // what it does --------------------------------------------------
         // if there is a previous value, carry out calculations and make make the calculation the previousValue with the new symbol.
         console.log(type)
         if (previousValue !== "") {
             // Calculate the new value
-            const newValue = await handleCalculate()
+            // const newValue = await handleCalculate()
             // add the new symbol to this value
-            setPreviousValue(`${newValue}`)
-            setCurrentOperation({symbol: symbol, type: type})
+            setPreviousValue((current) => current + currentValue + type)
+            // setCurrentOperation({symbol: symbol, type: type})
         } else {
-            setPreviousValue(`${currentValue}`)
-            setCurrentOperation({symbol: symbol, type: type})
+            setPreviousValue((current) => currentValue + type)
+            // setCurrentOperation({symbol: symbol, type: type})
             console.log(`Set previousValue to ${currentValue}`)
         }
         // else add currentValue and passed symbol to the previous value
@@ -112,29 +112,29 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     return (
         <div className="calculator-div">
             <div className="calculation-div">
-                <div className="previous">{previousValue} {currentOperation.symbol}</div>
+                <div className="previous">{previousValue}</div>
                 {/* .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") */}
                 <div className="current">{currentValue}</div>
             </div>
             <div className="buttons-grid">
                 <button onClick={handleClear} className="btn btn-brd-acc">C</button>
                 <div className="btn placeholder"></div>
-                <SymbolBtn symbol={"÷"} type={"/"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
-                <SymbolBtn symbol={"×"} type={"*"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <SymbolBtn symbol={"÷"} type={"/"} onClick={handleSymbolClick} className={"btn btn-acc"} />
+                <SymbolBtn symbol={"×"} type={"*"} onClick={handleSymbolClick} className={"btn btn-acc"} />
                 <DigitBtn digit={"7"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"8"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"9"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"-"} type={"-"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <SymbolBtn symbol={"-"} type={"-"} onClick={handleSymbolClick} className={"btn btn-acc"} />
                 <DigitBtn digit={"4"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"5"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"6"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"+"} type={"+"} onClick={handleSymbolClick} className={"btn btn-acc"}/>
+                <SymbolBtn symbol={"+"} type={"+"} onClick={handleSymbolClick} className={"btn btn-acc"} />
                 <DigitBtn digit={"1"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"2"} onClick={handleAddNumber} className={"btn"} />
                 <DigitBtn digit={"3"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"="} type={"="} onClick={handleEqualPress} className={"btn btn-acc span-two-vert"}/>
-                <DigitBtn digit={"0"} onClick={handleAddNumber} className={"btn span-two-hor"}/>
-                <DigitBtn digit={"."} onClick={handleAddNumber} className={"btn"}/>
+                <SymbolBtn symbol={"="} type={"="} onClick={handleEqualPress} className={"btn btn-acc span-two-vert"} />
+                <DigitBtn digit={"0"} onClick={handleAddNumber} className={"btn span-two-hor"} />
+                <DigitBtn digit={"."} onClick={handleAddNumber} className={"btn"} />
             </div>
         </div>
     )

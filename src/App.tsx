@@ -41,6 +41,8 @@ function App() {
         ]
     })
 
+    const [history, setHistory] = useState([])
+
     const handleNavChange = (id: number) => {
         // @ts-ignore
         setNavLinks({...navLinks, activeNavLink: id})
