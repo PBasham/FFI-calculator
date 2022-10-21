@@ -11,7 +11,7 @@ export const HistoryPage: FC<HistoryPageProps> = ({ history }) => {
 
     return (
         <div className="history-div">
-            {!history.length ?
+            {history.length < 1 ?
                 <h1>Test</h1>
                 :
                 history.map((calc, index) => (

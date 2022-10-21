@@ -2,7 +2,6 @@
         Import Dependencies
 ========================================*/
 import React, { useState } from 'react';
-import { Routes, Route, Navigate, redirect, useParams } from "react-router-dom"
 // Components --------------------------------------------------
 import { CalculatorPage } from "./pages/CalculatorPage/CalculatorPage";
 import { HistoryPage } from "./pages/HistoryPage/HistoryPage";
@@ -20,15 +19,13 @@ import "./css/history.css"
 
 
 function App() {
-    
-    const [history, setHistory] = useState([])
 
+    const [history, setHistory] = useState<any>([])
 
     const handleAddToHistory = (newCalc: string) => {
-        console.log("I've been accessed!")
-        console.log("newCalc: ", newCalc)
-        // @ts-ignore
-        setHistory((current) => [...current, newCalc])
+        let array = history
+        array.push(newCalc)
+        setHistory(array)
     }
 
     const [navLinks, setNavLinks] = useState({
@@ -42,7 +39,7 @@ function App() {
             {
                 id: 1,
                 name: "History",
-                element: <HistoryPage history={history}/>,
+                element: <HistoryPage history={history} />,
             },
             {
                 id: 2,
@@ -55,12 +52,13 @@ function App() {
 
     const handleNavChange = (id: number) => {
         // @ts-ignore
-        setNavLinks({...navLinks, activeNavLink: id})
+        setNavLinks({ ...navLinks, activeNavLink: id })
     }
 
     return (
         <div className="app">
-            <NavBar navLinks={navLinks} handleNavChange={handleNavChange}/>
+            {history}
+            <NavBar navLinks={navLinks} handleNavChange={handleNavChange} />
             {/* @ts-ignore */}
             {navLinks.allLinks[navLinks.activeNavLink].element}
         </div>

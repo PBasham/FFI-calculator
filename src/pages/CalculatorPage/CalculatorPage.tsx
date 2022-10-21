@@ -7,7 +7,7 @@ import { SymbolBtn } from "../../components/calculator/buttons/SymbolBtn";
 import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
-    handleAddToHistory: (calc: any) => void
+    handleAddToHistory: (newCalc: string) => void
 }
 
 export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) => {
@@ -60,7 +60,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) 
             const result = await handleCalculate()
             let formattedValue = formatValue(result)
             // send the current `${showVaue} = ${result}` to the historyState
-            handleAddToHistory(`${showPreviousValue}${showCurrentValue} = ${formatValue}`)
+            handleAddToHistory(`${showPreviousValue}${showCurrentValue} = ${formattedValue}`)
             setDecimalExist(false)
             setShowCurrentValue(formattedValue)
             setCurrentValue(result)
