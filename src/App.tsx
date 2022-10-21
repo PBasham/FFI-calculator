@@ -14,13 +14,22 @@ import { NavBar } from "./components/navBar/NavBar"
 // styling --------------------------------------------------
 import "./css/styles.css"
 import "./css/colors.css";
-import "./css/calculator.css"
 import "./css/navBar.css"
+import "./css/calculator.css"
+import "./css/history.css"
 
 
 function App() {
     
     const [history, setHistory] = useState([])
+
+
+    const handleAddToHistory = (newCalc: string) => {
+        console.log("I've been accessed!")
+        console.log("newCalc: ", newCalc)
+        // @ts-ignore
+        setHistory((current) => [...current, newCalc])
+    }
 
     const [navLinks, setNavLinks] = useState({
         activeNavLink: 0,
@@ -28,12 +37,12 @@ function App() {
             {
                 id: 0,
                 name: "Home",
-                element: <CalculatorPage />,
+                element: <CalculatorPage handleAddToHistory={handleAddToHistory} />,
             },
             {
                 id: 1,
                 name: "History",
-                element: <HistoryPage />,
+                element: <HistoryPage history={history}/>,
             },
             {
                 id: 2,

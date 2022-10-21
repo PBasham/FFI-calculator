@@ -7,10 +7,10 @@ import { SymbolBtn } from "../../components/calculator/buttons/SymbolBtn";
 import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
-
+    handleAddToHistory: (calc: any) => void
 }
 
-export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
+export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) => {
 
 
     const [showPreviousValue, setShowPreviousValue] = useState("")
@@ -50,9 +50,9 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
     // take previous number, symbol, and currentNumber and calculate the answer
     const handleCalculate = async () => {
-        let formattedValue = formatValue(`${Math.round(eval(`${previousValue}${currentValue}`) * 100) / 100}`)
+        // let formattedValue = formatValue()
 
-        return formattedValue
+        return `${Math.round(eval(`${previousValue}${currentValue}`) * 100) / 100}`
     }
 
     const handleEqualPress = async () => {
@@ -60,6 +60,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
             const result = await handleCalculate()
             let formattedValue = formatValue(result)
             // send the current `${showVaue} = ${result}` to the historyState
+            handleAddToHistory(`${showPreviousValue}${showCurrentValue} = ${formatValue}`)
             setDecimalExist(false)
             setShowCurrentValue(formattedValue)
             setCurrentValue(result)
