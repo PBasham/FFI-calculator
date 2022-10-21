@@ -6,7 +6,7 @@
     0%;
 }
 .update-theme,
-.updated-font {
+.update-font {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,9 +15,43 @@
 .settings-header {
     font-size: 2em;
 }
-.dropdown {
+
+
+.menu {
     margin-top: 1em;
+    width: 70%;
+    color: black;
+    font-size: 1.5em;
+    text-align: center;
+    position: relative;
     height: 50px;
-    width: 60%;
-    border: 2px solid var(--color-dividerBar);
+}
+.menu-selected {
+    background-color: rgb(230, 230, 230);
+    border-bottom: 3px solid var(--theme-purple-dividerBar);
+}
+.menu-dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    background-color: rgb(230, 230, 230);
+    display: none;
+    transition: 250ms ease-in-out;
+}
+.menu-dropdown.open {
+    display: block;
+    height: auto;
+}
+.menu-option {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+.menu-selected,
+.menu-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
 }

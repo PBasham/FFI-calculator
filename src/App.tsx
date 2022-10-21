@@ -24,9 +24,10 @@ function App() {
     const [history, setHistory] = useState<any>([])
 
     const [activeTheme, setActiveTheme] = useState<{
-        currentTheme: string; themes: string[];
+        currentTheme: number;
+        themes: string[];
     }>({
-        currentTheme: "Purple",
+        currentTheme: 0,
         themes: [
             "Purple",
             "Orange",
@@ -34,13 +35,28 @@ function App() {
         ]
     })
 
-    useEffect(() => {
+    const [activeFont, setActiveFont] = useState<{
+        currentFont: number;
+        fonts: string[];
+    }>({
+        currentFont: 0,
+        fonts: [
+            "sans-serif",
+            "Courier New",
+            "Times New Roman",
+        ]
+    })
 
-    }, [])
 
-    const handleUpdateTheme = (theme: string) => {
+    const handleUpdateFont = (id: number) => {
+        console.log("new id should be: ", id)
+        setActiveFont((current) => {
+            return { ...current, currentFont: id }
+        })
+    }
+    const handleUpdateTheme = (id: number) => {
         setActiveTheme((current) => {
-            return { ...current, currentTheme: theme }
+            return { ...current, currentTheme: id }
         })
     }
 
@@ -57,17 +73,14 @@ function App() {
             {
                 id: 0,
                 name: "Home",
-                element: <CalculatorPage activeTheme={activeTheme} handleAddToHistory={handleAddToHistory} />,
             },
             {
                 id: 1,
                 name: "History",
-                element: <HistoryPage activeTheme={activeTheme} history={history} />,
             },
             {
                 id: 2,
                 name: "Settings",
-                element: <SettingsPage activeTheme={activeTheme} handleUpdateTheme={handleUpdateTheme} />,
             },
         ]
     })
@@ -80,11 +93,14 @@ function App() {
     }
 
     return (
-        <div className={`app theme-${activeTheme.currentTheme}`}>
+        <div className={`app theme-${activeTheme.currentTheme}`} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
             {history}
             <NavBar activeTheme={activeTheme} navLinks={navLinks} handleNavChange={handleNavChange} />
             {/* @ts-ignore */}
             {navLinks.allLinks[navLinks.activeNavLink].element}
+            {navLinks.activeNavLink === 0 ? <CalculatorPage activeTheme={activeTheme} handleAddToHistory={handleAddToHistory} /> : null}
+            {navLinks.activeNavLink === 1 ? <HistoryPage activeTheme={activeTheme} history={history} /> : null}
+            {navLinks.activeNavLink === 2 ? <SettingsPage activeTheme={activeTheme} activeFont={activeFont} handleUpdateTheme={handleUpdateTheme} handleUpdateFont={handleUpdateFont} /> : null}
         </div>
     );
 }

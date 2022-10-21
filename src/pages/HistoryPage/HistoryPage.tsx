@@ -13,7 +13,7 @@ export const HistoryPage: FC<HistoryPageProps> = ({ history }) => {
     return (
         <div className="history-div">
             {history.length < 1 ?
-                <h1>Test</h1>
+                <h1>No History yet</h1>
                 :
                 history.map((calc, index) => (
                     <div key={index} className="calc-div">
