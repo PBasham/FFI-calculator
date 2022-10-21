@@ -1,12 +1,24 @@
 .nav-bar {
-    background-color: var(--color-navBar);
     height: 75px;
     position: absolute;
-    border-bottom: 1vh solid var(--color-dividerBar);
     width: 100%;
-    background-color: var(--color-navBar);
     transition: ease-in-out 150ms;
     z-index: 100;
+}
+
+.nav-bar.theme-purple {
+    border-bottom: 1vh solid var(--theme-purple-dividerBar);
+    background-color: var(--theme-purple-navBar);
+}
+
+.nav-bar.theme-orange {
+    border-bottom: 1vh solid var(--theme-orange-dividerBar);
+    background-color: var(--theme-orange-navBar);
+}
+
+.nav-bar.theme-green {
+    border-bottom: 1vh solid var(--theme-green-dividerBar);
+    background-color: var(--theme-green-navBar);
 }
 
 .nav-bar.open {
@@ -46,6 +58,7 @@
     position: absolute;
     bottom: 10px;
 }
+
 .nav-links {
     margin-top: 15%;
     display: flex;
@@ -54,10 +67,12 @@
     align-items: center;
     height: 80%;
 }
+
 .nav-link {
     opacity: 0;
     transition: 150ms ease-in-out;
 }
+
 .nav-link.open {
     font-size: 2rem;
     opacity: 1;

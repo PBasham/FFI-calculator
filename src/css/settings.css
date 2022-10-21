@@ -1,0 +1,23 @@
+.settings-div {
+    display: flex;
+    flex-direction: column;
+    padding-top: 75px;
+    height: 10
+    0%;
+}
+.update-theme,
+.updated-font {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+}
+.settings-header {
+    font-size: 2em;
+}
+.dropdown {
+    margin-top: 1em;
+    height: 50px;
+    width: 60%;
+    border: 2px solid var(--color-dividerBar);
+}

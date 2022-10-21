@@ -8,6 +8,7 @@ import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
     handleAddToHistory: (newCalc: string) => void
+    activeTheme: object
 }
 
 export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) => {

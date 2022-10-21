@@ -42,12 +42,30 @@
     place-items: center;
     margin: 5px;
     font-size: 2.5rem;
-    color: var(--color-text);
+    color: var(--theme-purple-text);
     background-color: transparent;
-    border: 2px solid var(--color-text);
-    border-color: var(--color-text);
+    border: 2px solid var(--theme-purple-text);
+    border-color: var(--theme-purple-text);
     border-radius: 2em;
 }
+.btn.theme-purple {
+    color: var(--theme-purple-text);
+    border: 2px solid var(--theme-purple-text);
+    border-color: var(--theme-purple-text);
+}
+
+.btn.theme-orange {
+    color: var(--theme-orange-text);
+    border: 2px solid var(--theme-orange-text);
+    border-color: var(--theme-orange-text);
+}
+
+.btn.theme-green {
+    color: var(--theme-green-text);
+    border: 2px solid var(--theme-green-text);
+    border-color: var(--theme-green-text);
+}
+
 .span-two-hor {
     grid-column: span 2;
 }
@@ -55,12 +73,12 @@
     grid-row: span 2;
 }
 .btn-brd-acc {
-    border-color: var(--color-buttonSymbol);
+    border-color: var(--theme-purple-buttonSymbol);
 }
 .btn-acc {
-    color: var(--color-textAccent);
-    background-color: var(--color-buttonSymbol);
-    border-color: var(--color-buttonSymbol);
+    color: var(--theme-purple-textAccent);
+    background-color: var(--theme-purple-buttonSymbol);
+    border-color: var(--theme-purple-buttonSymbol);
 }
 .placeholder {
     background-color: transparent;

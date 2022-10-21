@@ -5,6 +5,7 @@ import React, { FC } from 'react'
 
 interface HistoryPageProps {
     history: Array<string>
+    activeTheme: object
 }
 
 export const HistoryPage: FC<HistoryPageProps> = ({ history }) => {
@@ -19,7 +20,6 @@ export const HistoryPage: FC<HistoryPageProps> = ({ history }) => {
                         {calc}
                     </div>
                 ))
-
             }
         </div>
     )

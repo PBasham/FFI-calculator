@@ -8,8 +8,8 @@
 
 body {
     font-family: sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: var(--theme-purple-background);
+    color: var(--theme-purple-text);
 }
 
 html,
@@ -19,6 +19,18 @@ body {
 
 .app {
     height: 100vh;
+}
+.app.theme-purple {
+    background-color: var(--theme-purple-background);
+    color: var(--theme-purple-text);
+}
+.app.theme-orange {
+    background-color: var(--theme-orange-background);
+    color: var(--theme-orange-text);
+}
+.app.theme-green {
+    background-color: var(--theme-green-background);
+    color: var(--theme-green-text);
 }
 
 /*  Future use */

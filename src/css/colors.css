@@ -1,10 +1,29 @@
 :root {
-    --color-navBar: rgb(100,83,144);
-    --color-navOverlay: rgba(100,83,144, .9);
-    --color-dividerBar: rgb(49,38,80);
-    --color-background: rgb(67,50,110);
-    --color-buttonNumber: rgb(67,50,110);
-    --color-text: rgb(255,254,253);
-    --color-textAccent: rgb(67,50,110);
-    --color-buttonSymbol: rgb(250,214,82);
+    /* Theme Purple -------------------------------------------------- */
+    --theme-purple-navBar: rgb(100, 83, 144);
+    --theme-purple-navOverlay: rgba(100, 83, 144, .9);
+    --theme-purple-dividerBar: rgb(49, 38, 80);
+    --theme-purple-background: rgb(67, 50, 110);
+    --theme-purple-buttonNumber: rgb(67, 50, 110);
+    --theme-purple-text: rgb(255, 254, 253);
+    --theme-purple-textAccent: rgb(67, 50, 110);
+    --theme-purple-buttonSymbol: rgb(250, 214, 82);
+    /* Theme Orange -------------------------------------------------- */
+    --theme-orange-navBar: rgb(213, 146, 30);
+    --theme-orange-navOverlay: rgba(213, 146, 30, 0.9);
+    --theme-orange-dividerBar: rgb(123, 79, 28);
+    --theme-orange-background: rgb(243, 147, 45);
+    --theme-orange-buttonNumber: rgb(243, 147, 45);
+    --theme-orange-text: rgb(255, 254, 253);
+    --theme-orange-textAccent: rgb(243, 147, 45);
+    --theme-orange-buttonSymbol: rgb(250, 214, 82);
+    /* Theme Green -------------------------------------------------- */
+    /* --theme-green-navBar: rgb(100, 83, 144);
+    --theme-green-navOverlay: rgba(100, 83, 144, .9);
+    --theme-green-dividerBar: rgb(49, 38, 80);
+    --theme-green-background: rgb(67, 50, 110);
+    --theme-green-buttonNumber: rgb(67, 50, 110);
+    --theme-green-text: rgb(255, 254, 253);
+    --theme-green-textAccent: rgb(67, 50, 110);
+    --theme-green-buttonSymbol: rgb(250, 214, 82); */
 }
