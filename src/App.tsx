@@ -29,9 +29,9 @@ function App() {
     }>({
         currentTheme: 0,
         themes: [
-            "Purple",
-            "Orange",
-            "Green",
+            "purple",
+            "orange",
+            "green",
         ]
     })
 
@@ -55,6 +55,7 @@ function App() {
         })
     }
     const handleUpdateTheme = (id: number) => {
+        console.log("new id should be: ", id)
         setActiveTheme((current) => {
             return { ...current, currentTheme: id }
         })
@@ -92,8 +93,9 @@ function App() {
         })
     }
 
+    console.log(activeTheme.themes[activeTheme.currentTheme])
     return (
-        <div className={`app theme-${activeTheme.currentTheme}`} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
+        <div className={`app theme-${activeTheme.themes[activeTheme.currentTheme]}`} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
             {history}
             <NavBar activeTheme={activeTheme} navLinks={navLinks} handleNavChange={handleNavChange} />
             {/* @ts-ignore */}

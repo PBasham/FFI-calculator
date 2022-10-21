@@ -32,9 +32,6 @@ export const SettingsPage: FC<SettingsPageProps> = ({ activeTheme, activeFont, h
         setThemeMenuOpen(!themeMenuOpen)
     }
 
-    console.log(activeFont.currentFont)
-    console.log(activeFont.fonts[activeFont.currentFont])
-
     return (
         <div className="settings-div">
 
