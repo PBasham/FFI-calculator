@@ -19,6 +19,8 @@ import "./css/navBar.css"
 
 
 function App() {
+    
+    const [history, setHistory] = useState([])
 
     const [navLinks, setNavLinks] = useState({
         activeNavLink: 0,
@@ -41,7 +43,6 @@ function App() {
         ]
     })
 
-    const [history, setHistory] = useState([])
 
     const handleNavChange = (id: number) => {
         // @ts-ignore

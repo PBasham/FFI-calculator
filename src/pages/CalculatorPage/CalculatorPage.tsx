@@ -13,9 +13,11 @@ interface CalculatorPageProps {
 export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
 
-    const [showValue, setShowValue] = useState("")
+    const [showPreviousValue, setShowPreviousValue] = useState("")
 
     const [previousValue, setPreviousValue] = useState<string>("")
+
+    const [showCurrentValue, setShowCurrentValue] = useState("0")
 
     const [currentValue, setCurrentValue] = useState<string>("0")
 
@@ -23,10 +25,11 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
 
 
     const handleClear = () => {
-        console.log("Clear calculation");
         // Clear PreviousNumbers
         // reset value to 0 | "" | decimalExist(false)
+        setShowCurrentValue(() => "0")
         setCurrentValue(() => "0")
+        setShowPreviousValue(() => "")
         setPreviousValue(() => "")
         setDecimalExist(false)
     }
@@ -40,79 +43,88 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ }) => {
     const handleEqualPress = async () => {
         if (previousValue !== "") {
             const result = await handleCalculate()
+            // send the current `${showVaue} = ${result}` to the historyState
             setDecimalExist(false)
+            setShowCurrentValue(result)
             setCurrentValue(result)
-            setShowValue("")
+            setShowPreviousValue("")
             setPreviousValue("")
         }
     }
 
     const handleAddNumber = (number: string) => {
-        console.log(" my digit is ", number)
-
         // Add number to the current value
 
         // if the currentValue is 0
+        let unFormattedValue = ""
         if (currentValue === "0") {
             // if num === "." and decimalExist === false, add the decimal onto the 0, setDecimalExist(true)
             if (number === "." && !decimalExist) {
                 setDecimalExist(true)
-                setCurrentValue(() => "0.")
+                unFormattedValue = "0."
+                setCurrentValue(() => unFormattedValue)
+                setShowCurrentValue(() => unFormattedValue)
             } else {
                 // else if num !== "." set currentValue === number
-                setCurrentValue(() => "" + number)
+                unFormattedValue = "" + number
+                setCurrentValue(() => unFormattedValue)
+                setShowCurrentValue(() => unFormattedValue)
             }
 
             // else (currentValue !== "0")
         } else {
             // if num === "." and decimalExist === false, add the decimal to the number | set decimalExist(true)
+            unFormattedValue = "" + currentValue + number
             if (number === "." && !decimalExist) {
                 setDecimalExist(true)
-                setCurrentValue((currentNumber) =>
-                    "" + currentNumber + number
-                )
+                setCurrentValue(() => unFormattedValue)
+                setShowCurrentValue(() => unFormattedValue)
             } else if (number !== ".") {
                 // else append number
-                setCurrentValue((currentNumber) =>
-                    "" + currentNumber + number
-                )
+                setCurrentValue(() => unFormattedValue)
+                setShowCurrentValue(() => unFormattedValue)
             }
         }
-
-
-
-
-
-        console.log(currentValue)
-
     }
 
     const handleSymbolClick = async (symbol: string, type: string) => {
         // what it does --------------------------------------------------
         // if there is a previous value, carry out calculations and make make the calculation the previousValue with the new symbol.
-        console.log(type)
+        // let unFormattedValue: any = ""
+        let unFormattedValue = currentValue.split(".")
+        let formattedValue: string = ""
         if (previousValue !== "") {
-            // Calculate the new value
+            // seperate the show value by "." and add commas to the number
+            if (unFormattedValue.length > 1) {
+                formattedValue = unFormattedValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "." + unFormattedValue[1]
+            } else {
+                formattedValue = unFormattedValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
             // add the new symbol to this value
-            setShowValue((current) => current + currentValue + symbol)
+            setShowPreviousValue((current) => current + formattedValue + symbol)
             setPreviousValue((current) => current + currentValue + type)
         } else {
-            setShowValue((current) => currentValue + symbol)
+            if (unFormattedValue.length > 1) {
+                formattedValue = unFormattedValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "." + unFormattedValue[1]
+            } else {
+                formattedValue = unFormattedValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+
+            setShowPreviousValue((current) => formattedValue + symbol)
             setPreviousValue((current) => currentValue + type)
-            console.log(`Set previousValue to ${currentValue}`)
         }
         // else add currentValue and passed symbol to the previous value
         //  --------------------------------------------------
         setDecimalExist(false)
+        setShowCurrentValue("0")
         setCurrentValue("0")
     }
 
     return (
         <div className="calculator-div">
             <div className="calculation-div">
-                <div className="previous">{showValue}</div>
-                {/* .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") */}
-                <div className="current">{currentValue}</div>
+                <div className="previous">{showPreviousValue}</div>
+                <div className="current">{showCurrentValue}</div>
             </div>
             <div className="buttons-grid">
                 <button onClick={handleClear} className="btn btn-brd-acc">C</button>
