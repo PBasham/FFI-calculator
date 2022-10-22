@@ -32,8 +32,8 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, handleNavChange, activeTheme
                 <div className="hamburger-menu"></div>
             </div>
             <div className="nav-links">
-                {navLinks.allLinks.map((link: any, key: number) => (
-                    <p key={link.id} onClick={() => handleNavClick(link.id)} className={`nav-link ${navModalOpen ? "open" : null}`}>{link.name}</p>
+                {navLinks.allLinks.map((link: any, index: number) => (
+                    <p key={link.id} onClick={() => handleNavClick(link.id)} className={`nav-link ${navLinks.activeNavLink === index ? `active` : null} ${navModalOpen ? "open" : null}`}>{link.name}</p>
                 ))}
             </div>
         </div>
