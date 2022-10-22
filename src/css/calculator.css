@@ -144,7 +144,7 @@
         margin-top: 2em;
         display: grid;
         height: 53%;
-        grid-template-columns: repeat(3, 20vh) 50px repeat(4, 20vh);
+        grid-template-columns: repeat(3, 20vh) 40vh repeat(4, 20vh);
         grid-template-rows: repeat(3, 20vh);
     }
 
