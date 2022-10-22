@@ -42,10 +42,7 @@
     place-items: center;
     margin: 5px;
     font-size: 2.5rem;
-    color: var(--theme-purple-text);
     background-color: transparent;
-    border: 2px solid var(--theme-purple-text);
-    border-color: var(--theme-purple-text);
     border-radius: 2em;
 }
 .btn.theme-purple {
@@ -72,14 +69,32 @@
 .span-two-vert {
     grid-row: span 2;
 }
-.btn-brd-acc {
+.btn-brd-acc.theme-purple {
     border-color: var(--theme-purple-buttonSymbol);
 }
-.btn-acc {
+.btn-brd-acc.theme-orange {
+    border-color: var(--theme-orange-buttonSymbol);
+}
+.btn-brd-acc.theme-green {
+    border-color: var(--theme-green-buttonSymbol);
+}
+.btn-acc.theme-purple {
     color: var(--theme-purple-textAccent);
     background-color: var(--theme-purple-buttonSymbol);
     border-color: var(--theme-purple-buttonSymbol);
 }
+.btn-acc.theme-orange {
+    color: var(--theme-orange-textAccent);
+    background-color: var(--theme-orange-buttonSymbol);
+    border-color: var(--theme-orange-buttonSymbol);
+}
+.btn-acc.theme-green {
+    color: var(--theme-green-textAccent);
+    background-color: var(--theme-green-buttonSymbol);
+    border-color: var(--theme-green-buttonSymbol);
+}
+
+
 .placeholder {
     background-color: transparent;
     border: none;

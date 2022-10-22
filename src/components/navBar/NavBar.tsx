@@ -6,10 +6,10 @@ import React, { FC, useState } from 'react'
 interface NavBarProps {
     navLinks: any
     handleNavChange: (id: number) => void
-    activeTheme: object
+    activeTheme: any
 }
 
-export const NavBar: FC<NavBarProps> = ({ navLinks, handleNavChange }) => {
+export const NavBar: FC<NavBarProps> = ({ navLinks, handleNavChange, activeTheme }) => {
 
     const [navModalOpen, setNavModalOpen] = useState(false)
 
@@ -26,7 +26,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, handleNavChange }) => {
     }
 
     return (
-        <div className={`nav-bar theme-purple ${navModalOpen ? "open" : null}`}>
+        <div className={`nav-bar theme-${activeTheme.themes[activeTheme.currentTheme]} ${navModalOpen ? "open" : null}`}>
             {/* on click change state for MenuOpen to true */}
             <div onClick={handleMenuClick} className="navBtn">
                 <div className="hamburger-menu"></div>

@@ -1,17 +1,17 @@
 /*========================================
         Import Dependencies
 ========================================*/
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { DigitBtn } from "../../components/calculator/buttons/DigitBtn";
 import { SymbolBtn } from "../../components/calculator/buttons/SymbolBtn";
 import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
     handleAddToHistory: (newCalc: string) => void
-    activeTheme: object
+    activeTheme: any
 }
 
-export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) => {
+export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory, activeTheme }) => {
 
 
     const [showPreviousValue, setShowPreviousValue] = useState("")
@@ -24,6 +24,9 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) 
 
     const [decimalExist, setDecimalExist] = useState(false)
 
+    useEffect(() => {
+
+    },[])
 
     const formatValue = (value: string) => {
         // split on decimal
@@ -128,24 +131,24 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory }) 
                 <div className="current">{showCurrentValue}</div>
             </div>
             <div className="buttons-grid">
-                <button onClick={handleClear} className="btn btn-brd-acc">C</button>
+                <button onClick={handleClear} className={`btn btn-brd-acc theme-${activeTheme.themes[activeTheme.currentTheme]}`}>C</button>
                 <div className="btn placeholder"></div>
-                <SymbolBtn symbol={"÷"} type={"/"} onClick={handleSymbolClick} className={"btn btn-acc"} />
-                <SymbolBtn symbol={"×"} type={"*"} onClick={handleSymbolClick} className={"btn btn-acc"} />
-                <DigitBtn digit={"7"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"8"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"9"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"-"} type={"-"} onClick={handleSymbolClick} className={"btn btn-acc"} />
-                <DigitBtn digit={"4"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"5"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"6"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"+"} type={"+"} onClick={handleSymbolClick} className={"btn btn-acc"} />
-                <DigitBtn digit={"1"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"2"} onClick={handleAddNumber} className={"btn"} />
-                <DigitBtn digit={"3"} onClick={handleAddNumber} className={"btn"} />
-                <SymbolBtn symbol={"="} type={"="} onClick={handleEqualPress} className={"btn btn-acc span-two-vert"} />
-                <DigitBtn digit={"0"} onClick={handleAddNumber} className={"btn span-two-hor"} />
-                <DigitBtn digit={"."} onClick={handleAddNumber} className={"btn"} />
+                <SymbolBtn symbol={"÷"} type={"/"} onClick={handleSymbolClick} className={`btn btn-acc theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <SymbolBtn symbol={"×"} type={"*"} onClick={handleSymbolClick} className={`btn btn-acc theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"7"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"8"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"9"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <SymbolBtn symbol={"-"} type={"-"} onClick={handleSymbolClick} className={`btn btn-acc theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"4"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"5"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"6"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <SymbolBtn symbol={"+"} type={"+"} onClick={handleSymbolClick} className={`btn btn-acc theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"1"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"2"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <DigitBtn digit={"3"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
+                <SymbolBtn symbol={"="} type={"="} onClick={handleEqualPress} className={`btn btn-acc theme-${activeTheme.themes[activeTheme.currentTheme]} span-two-vert`} />
+                <DigitBtn digit={"0"} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]} span-two-hor`} />
+                <DigitBtn digit={"."} onClick={handleAddNumber} className={`btn theme-${activeTheme.themes[activeTheme.currentTheme]}`} />
             </div>
         </div>
     )
