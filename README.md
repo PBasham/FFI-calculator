@@ -20,7 +20,7 @@ Calculator app where you can do simple calculations, view a log of your previous
 ![Calculator Page with Orange Theme](public/imgs/readme/calculator_06.jpg)
 
 
-###Landscape view
+### Landscape view
 ![Calculator Page Landscape](public/imgs/readme/landscapeView/calculatorL_01.jpg)
 ![Calculator Page Landscape](public/imgs/readme/landscapeView/calculatorL_02.jpg)
 ![History Page Landscape](public/imgs/readme/landscapeView/calculatorL_03.jpg)
