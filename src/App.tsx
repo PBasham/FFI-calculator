@@ -21,6 +21,8 @@ import "./css/settings.css"
 
 function App() {
 
+
+
     const [history, setHistory] = useState<any>([])
 
     const [activeTheme, setActiveTheme] = useState<{
@@ -34,6 +36,18 @@ function App() {
             "green",
         ]
     })
+
+    useEffect(() => {
+
+        if (activeTheme.currentTheme === 1) {
+            document.body.style.background = "rgb(243, 147, 45)"
+        } else if (activeTheme.currentTheme === 2) {
+            document.body.style.background = "rgb(51, 186, 92)"
+        } else {
+            document.body.style.background = "rgb(67, 50, 110)"
+        }
+
+    }, [activeTheme])
 
     const [activeFont, setActiveFont] = useState<{
         currentFont: number;
@@ -92,7 +106,7 @@ function App() {
     }
 
     return (
-        <div className={`app theme-${activeTheme.themes[activeTheme.currentTheme]}`} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
+        <div className={`app `} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
             {history}
             <NavBar activeTheme={activeTheme} navLinks={navLinks} handleNavChange={handleNavChange} />
             {/* @ts-ignore */}

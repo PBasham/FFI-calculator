@@ -18,7 +18,7 @@ body {
 }
 
 .app {
-    height: 100vh;
+    height: 100%;
 }
 .app.theme-purple {
     background-color: var(--theme-purple-background);
