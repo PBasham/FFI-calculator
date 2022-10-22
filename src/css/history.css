@@ -25,3 +25,10 @@
 .history-div .calc-div.theme-green {
     border-bottom: 2px solid var(--theme-green-dividerBar);
 }
+
+@media screen and (orientation: landscape) {
+    .history-div {
+        padding-top: 0;
+        padding-left: 10%;
+    }
+}
