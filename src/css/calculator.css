@@ -277,7 +277,7 @@
         display: grid;
         height: 53%;
         grid-template-columns: repeat(4, min(20vh, 75px)) min(100px, 20vw) repeat(3, min(20vh, 75px));
-        grid-template-rows: repeat(4, min(20vh, 75px));
+        grid-template-rows: repeat(3, min(20vh, 75px));
     }
     .span-two-hor {
         grid-column: span 2;
@@ -348,26 +348,26 @@
 
     .symbol-divide {
         grid-row: 2/3;
-        grid-column: 7/8;
+        grid-column: 6/7;
     }
 
     .symbol-multiply {
         grid-row: 2/3;
-        grid-column: 8/9;
+        grid-column: 7/8;
     }
 
     .symbol-subtract {
         grid-row: 3/4;
-        grid-column: 7/8;
+        grid-column: 6/7;
     }
 
     .symbol-add {
         grid-row: 3/4;
-        grid-column: 8/9;
+        grid-column: 7/8;
     }
 
     .symbol-equal {
-        grid-row: 4/5;
-        grid-column: 7/9;
+        grid-row: 2/4;
+        grid-column: 8/8;
     }
 }
