@@ -49,13 +49,11 @@ function App() {
 
 
     const handleUpdateFont = (id: number) => {
-        console.log("new id should be: ", id)
         setActiveFont((current) => {
             return { ...current, currentFont: id }
         })
     }
     const handleUpdateTheme = (id: number) => {
-        console.log("new id should be: ", id)
         setActiveTheme((current) => {
             return { ...current, currentTheme: id }
         })
@@ -93,7 +91,6 @@ function App() {
         })
     }
 
-    console.log(activeTheme.themes[activeTheme.currentTheme])
     return (
         <div className={`app theme-${activeTheme.themes[activeTheme.currentTheme]}`} style={{ fontFamily: activeFont.fonts[activeFont.currentFont] }} >
             {history}
