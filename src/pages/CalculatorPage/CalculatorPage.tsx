@@ -108,6 +108,8 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory, ac
     const handleSymbolClick = async (symbol: string, type: string) => {
         // format the currentValue and add the symbol to the end
 
+        if (currentValue === "") return
+
         let formattedValue = formatValue(currentValue)
         if (previousValue !== "" && currentValue === "") {
             // strip the end and add the new symbol

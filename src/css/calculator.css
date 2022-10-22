@@ -279,6 +279,9 @@
         grid-template-columns: repeat(4, min(20vh, 75px)) min(100px, 20vw) repeat(3, min(20vh, 75px));
         grid-template-rows: repeat(3, min(20vh, 75px));
     }
+    .buttons-grid .btn {
+        font-size: 1.8rem;
+    }
     .span-two-hor {
         grid-column: span 2;
     }
