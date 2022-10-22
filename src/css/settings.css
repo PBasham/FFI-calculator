@@ -33,10 +33,10 @@
     border-bottom: 3px solid var(--theme-purple-dividerBar);
 }
 .menu-selected.theme-orange {
-    border-bottom: 3px solid var(--theme-purple-dividerBar);
+    border-bottom: 3px solid var(--theme-orange-dividerBar);
 }
-.menu-selected-theme-green {
-    border-bottom: 3px solid var(--theme-purple-dividerBar);
+.menu-selected.theme-green {
+    border-bottom: 3px solid var(--theme-green-dividerBar);
 }
 
 .menu-dropdown {
