@@ -16,7 +16,7 @@ Calculator app where you can do simple calculations, view a log of your previous
 ### Open Menu
 ![Open Menu](public/imgs/readme/calculator_07.jpg)
 
-Calculator page with different font.
+### Calculator page with different font.
 ![Calculator Page with Orange Theme](public/imgs/readme/calculator_06.jpg)
 
 
