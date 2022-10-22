@@ -16,14 +16,14 @@
     --theme-orange-buttonNumber: rgb(243, 147, 45);
     --theme-orange-text: rgb(255, 254, 253);
     --theme-orange-textAccent: rgb(243, 147, 45);
-    --theme-orange-buttonSymbol: rgb(250, 214, 82);
+    --theme-orange-buttonSymbol: rgb(209, 64, 53);
     /* Theme Green -------------------------------------------------- */
-    /* --theme-green-navBar: rgb(100, 83, 144);
-    --theme-green-navOverlay: rgba(100, 83, 144, .9);
-    --theme-green-dividerBar: rgb(49, 38, 80);
-    --theme-green-background: rgb(67, 50, 110);
-    --theme-green-buttonNumber: rgb(67, 50, 110);
+    --theme-green-navBar: rgb(29, 131, 65);
+    --theme-green-navOverlay: rgba(29, 131, 65, .9);
+    --theme-green-dividerBar: rgb(20, 73, 31);
+    --theme-green-background: rgb(51, 186, 92);
+    --theme-green-buttonNumber: rgb(51, 186, 92);
     --theme-green-text: rgb(255, 254, 253);
-    --theme-green-textAccent: rgb(67, 50, 110);
-    --theme-green-buttonSymbol: rgb(250, 214, 82); */
+    --theme-green-textAccent: rgb(51, 186, 92);
+    --theme-green-buttonSymbol: rgb(5, 135, 149);
 }

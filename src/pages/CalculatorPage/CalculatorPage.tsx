@@ -126,7 +126,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory, ac
 
     return (
         <div className="calculator-div">
-            <div className="calculation-div">
+            <div className={`calculation-div theme-${activeTheme.themes[activeTheme.currentTheme]}`}>
                 <div className="previous">{showPreviousValue}</div>
                 <div className="current">{showCurrentValue}</div>
             </div>

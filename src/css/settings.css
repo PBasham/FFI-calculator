@@ -28,8 +28,17 @@
 }
 .menu-selected {
     background-color: rgb(230, 230, 230);
+}
+.menu-selected.theme-purple {
     border-bottom: 3px solid var(--theme-purple-dividerBar);
 }
+.menu-selected.theme-orange {
+    border-bottom: 3px solid var(--theme-purple-dividerBar);
+}
+.menu-selected-theme-green {
+    border-bottom: 3px solid var(--theme-purple-dividerBar);
+}
+
 .menu-dropdown {
     display: flex;
     flex-direction: column;

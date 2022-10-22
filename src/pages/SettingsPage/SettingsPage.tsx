@@ -38,7 +38,7 @@ export const SettingsPage: FC<SettingsPageProps> = ({ activeTheme, activeFont, h
             <div className="update-font">
                 <p className="settings-header">Font</p>
                 <div className="menu">
-                    <div onClick={handleFontMenu} className="menu-selected">
+                    <div onClick={handleFontMenu} className={`menu-selected theme-${activeTheme.themes[activeTheme.currentTheme]}`}>
                         <p>{activeFont.fonts[activeFont.currentFont]}</p>
                     </div>
                     <div className={`menu-dropdown ${fontMenuOpen ? `open` : null}`}>
@@ -52,7 +52,7 @@ export const SettingsPage: FC<SettingsPageProps> = ({ activeTheme, activeFont, h
             <div className="update-theme">
                 <p className="settings-header">Theme</p>
                 <div className="menu">
-                    <div onClick={handleThemeMenu} className="menu-selected">
+                    <div onClick={handleThemeMenu} className={`menu-selected theme-${activeTheme.themes[activeTheme.currentTheme]}`}>
                         <p>{activeTheme.themes[activeTheme.currentTheme]}</p>
                     </div>
                     <div className={`menu-dropdown ${themeMenuOpen ? `open` : null}`}>

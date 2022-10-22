@@ -16,9 +16,18 @@
     font-size: 5em;
     width: 100%;
     min-height: 26vh;
-    border-bottom: 3px solid rgba(154,144,176, 1);
     word-wrap: break-word;
     word-break: break-all;
+}
+
+.calculation-div.theme-purple {
+    border-bottom: 3px solid rgba(154,144,176, 1);
+}
+.calculation-div.theme-orange {
+    border-bottom: 3px solid var(--theme-orange-dividerBar);
+}
+.calculation-div.theme-green {
+    border-bottom: 3px solid var(--theme-green-dividerBar);
 }
 
 .calculation-div .current {
