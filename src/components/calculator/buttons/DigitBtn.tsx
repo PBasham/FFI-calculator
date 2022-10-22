@@ -18,7 +18,7 @@ export const DigitBtn: FC<DigitBtnProps> = ({digit, onClick, className}) => {
 
    return (
        <div onClick={() => onClick(digit)} className={className}>
-           {digit}
+           <p>{digit}</p>
        </div>
    )
 }

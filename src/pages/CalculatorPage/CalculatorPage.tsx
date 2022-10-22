@@ -4,7 +4,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import { DigitBtn } from "../../components/calculator/buttons/DigitBtn";
 import { SymbolBtn } from "../../components/calculator/buttons/SymbolBtn";
-import { ButtonsDiv } from "../../components/calculator/ButtonsDiv"
 
 interface CalculatorPageProps {
     handleAddToHistory: (newCalc: string) => void

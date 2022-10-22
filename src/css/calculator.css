@@ -58,7 +58,16 @@
     font-size: 2.5rem;
     background-color: transparent;
     border-radius: 2em;
+    transition: 250ms ease-in-out;
 }
+/* .btn:hover,
+.btn:focus {
+    background-color: white;
+}
+.btn:hover > p,
+.btn:focus > p {
+    color: var(--theme-purple-background);
+} */
 
 .btn.theme-purple {
     color: var(--theme-purple-text);
@@ -76,6 +85,26 @@
     color: var(--theme-green-text);
     border: 2px solid var(--theme-green-text);
     border-color: var(--theme-green-text);
+}
+.btn.theme-purple:hover,
+.btn.theme-purple:focus {
+    color: var(--theme-purple-background);
+    background-color: var(--theme-purple-text);
+    border-color: var(--theme-purple-background);
+}
+
+.btn.theme-orange:hover,
+.btn.theme-orange:focus {
+    color: var(--theme-orange-background);
+    background-color: var(--theme-orange-text);
+    border-color: var(--theme-orange-background);
+}
+
+.btn.theme-green:hover,
+.btn.theme-green:focus {
+    color: var(--theme-green-background);
+    background-color: var(--theme-green-text);
+    border-color: var(--theme-green-background);
 }
 
 .span-two-hor {
