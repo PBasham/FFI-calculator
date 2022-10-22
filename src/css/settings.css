@@ -64,3 +64,11 @@
     align-items: center;
     height: 50px;
 }
+
+@media screen and (orientation: landscape) {
+    .settings-div {
+        padding-top: 0;
+        margin-left: 10%;
+        min-height: 500px;
+    }
+}
