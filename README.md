@@ -4,6 +4,7 @@
 Calculator app where you can do simple calculations, view a log of your previous calculations and change the theme / font.
 
 Use:
+
 Git clone, then run npm Start on project folder.
 
 ---
