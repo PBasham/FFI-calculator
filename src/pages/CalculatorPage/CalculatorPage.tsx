@@ -64,7 +64,7 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory, ac
             const result = await handleCalculate()
             let formattedValue = formatValue(result)
             // send the current `${showVaue} = ${result}` to the historyState
-            handleAddToHistory(`${showPreviousValue}${showCurrentValue} = ${formattedValue}`)
+            handleAddToHistory(`${showPreviousValue} ${showCurrentValue} = ${formattedValue}`)
             setDecimalExist(false)
             setShowCurrentValue(formattedValue)
             setCurrentValue(result)
@@ -115,15 +115,15 @@ export const CalculatorPage: FC<CalculatorPageProps> = ({ handleAddToHistory, ac
             console.log(changedPrevious)
             formattedValue = formatValue(changedPrevious)
             
-            setShowPreviousValue((current) => formattedValue + symbol)
-            setPreviousValue((current) => changedPrevious + type)
+            setShowPreviousValue((current) => `${formattedValue} ${symbol}`)
+            setPreviousValue((current) => `${changedPrevious} ${type}`)
         } else if (previousValue !== "") {
             // add the new symbol to this value
-            setShowPreviousValue((current) => current + formattedValue + symbol)
-            setPreviousValue((current) => current + currentValue + type)
+            setShowPreviousValue((current) => `${current} ${formattedValue} ${symbol}`)
+            setPreviousValue((current) => `${current} ${currentValue} ${type}`)
         } else {
-            setShowPreviousValue((current) => formattedValue + symbol)
-            setPreviousValue((current) => currentValue + type)
+            setShowPreviousValue((current) => `${formattedValue} ${symbol}`)
+            setPreviousValue((current) => `${currentValue} ${type}`)
         }
         // reset currentValues
         setDecimalExist(false)
