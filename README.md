@@ -26,7 +26,7 @@ Calculator app where you can do simple calculations, view a log of your previous
 ![Settings Page Landscape](public/imgs/readme/landscapeView/calculatorL_04.jpg)
 ![Opem Menu Landscape](public/imgs/readme/landscapeView/calculatorL_05.jpg)
 
-###Desktop view
+### Desktop view
 ![Calculator Page Desktop](public/imgs/readme/desktop/calculatorD_01.jpg)
 ![Calculator Page Desktop](public/imgs/readme/desktop/calculatorD_02.jpg)
 ![History Page Desktop](public/imgs/readme/desktop/calculatorD_03.jpg)
