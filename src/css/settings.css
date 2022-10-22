@@ -72,3 +72,10 @@
         min-height: 500px;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .settings-div {
+        margin: 3em auto;
+
+    }
+}
